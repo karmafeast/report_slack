@@ -48,7 +48,7 @@
     },
     {
       "name": "puppetlabs/inifile",
-      "version_requirement": ">= 2.4.0 < 4.0.0"
+      "version_requirement": ">= 2.4.0 < 6.0.0"
     }
   ],
   "requirements": [
