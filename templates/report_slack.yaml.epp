@@ -14,6 +14,9 @@
   Boolean $slack_include_eval_time,
   Boolean $slack_include_run_time_metrics,
   Integer $slack_max_attach_count,
+  Boolean $slack_enable_proxy,
+  Optional[String] $slack_proxy_address,
+  Optional[String] $slack_proxy_port,
   Array[String] $slack_time_metrics_keys,
   Array[String] $slack_default_statuses,
   Array[String] $slack_attach_log_levels,
@@ -39,6 +42,10 @@
 :slack_report_events_as_attach: <%= $slack_events_as_attach %>
 :slack_report_include_eval_time: <%= $slack_include_eval_time %>
 :slack_report_include_run_time_metrics: <%= $slack_include_run_time_metrics %>
+<% if $slack_enable_proxy { -%>
+:slack_proxy_address: <%= $slack_proxy_address %>
+:slack_proxy_port: <%= $slack_proxy_port %>
+<% } -%>
 :slack_report_max_attach_count: <%= $slack_max_attach_count %>
 <% if $slack_mute_patterns { -%>
 :slack_report_mute_patterns:
