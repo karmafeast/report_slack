@@ -26,6 +26,9 @@ class report_slack (
   Boolean $slack_events_as_attach                                  = true,
   Boolean $slack_include_eval_time                                 = false,
   Boolean $slack_include_run_time_metrics                          = false,
+  Boolean $slack_enable_proxy                                      = false,
+  Optional[String] $slack_proxy_address                            = undef,
+  Optional[String] $slack_proxy_port                               = undef,
   Optional[Array[String]] $slack_attach_log_tags                   = undef,
   Optional[Array[String]] $slack_include_patterns                  = undef,
   Optional[Array[String]] $slack_mute_patterns                     = undef,
@@ -38,7 +41,7 @@ class report_slack (
     group   => $group,
     mode    => '0440',
     content => epp("${module_name}/report_slack.yaml.epp",
-      { 'slack_default_webhook'         => $slack_default_webhook,
+      { 'slack_default_webhook'          => $slack_default_webhook,
         'slack_failed_color'             => $slack_failed_color,
         'slack_failed_emoji'             => $slack_failed_emoji,
         'slack_changed_color'            => $slack_changed_color,
@@ -60,7 +63,11 @@ class report_slack (
         'slack_max_attach_count'         => $slack_max_attach_count,
         'slack_include_patterns'         => $slack_include_patterns,
         'slack_mute_patterns'            => $slack_mute_patterns,
-        'slack_routing_data'             => $slack_routing_data }),
+        'slack_routing_data'             => $slack_routing_data,
+        'slack_enable_proxy'             => $slack_enable_proxy,
+        'slack_proxy_address'            => $slack_proxy_address,
+        'slack_proxy_port'               => $slack_proxy_port,
+      }),
   }
 
   package { 'slack-notifier':

@@ -1,6 +1,6 @@
 {
   "name": "karmafeast-report_slack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "karmafeast",
   "license": "Apache-2.0",
   "summary": "A Puppet report handler for Slack",
@@ -17,7 +17,8 @@
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
     },
     {
@@ -30,14 +31,16 @@
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "14.04",
-        "16.04"
+        "16.04",
+        "18.04"
       ]
     }
   ],
